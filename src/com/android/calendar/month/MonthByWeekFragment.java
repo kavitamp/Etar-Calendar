@@ -346,6 +346,10 @@ public class MonthByWeekFragment extends SimpleDayPickerFragment implements
             mEventUri = updateUri();
             String where = updateWhere();
 
+            if (!Utils.isCalendarPermissionGranted(mContext)) {
+                //If permission is not granted then return.
+                return null;
+            }
             loader = new CursorLoader(
                     getActivity(), mEventUri, Event.EVENT_PROJECTION, where,
                     null /* WHERE_CALENDARS_SELECTED_ARGS */, INSTANCES_SORT_ORDER);

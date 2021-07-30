@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Etar-Calendar.iml" filepath="$PROJECT_DIR$/.idea/modules/Etar-Calendar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/external/Etar-Calendar.external.iml" filepath="$PROJECT_DIR$/.idea/modules/external/Etar-Calendar.external.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/external/calendar/Etar-Calendar.external.calendar.iml" filepath="$PROJECT_DIR$/.idea/modules/external/calendar/Etar-Calendar.external.calendar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/external/chips/Etar-Calendar.external.chips.iml" filepath="$PROJECT_DIR$/.idea/modules/external/chips/Etar-Calendar.external.chips.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/external/colorpicker/Etar-Calendar.external.colorpicker.iml" filepath="$PROJECT_DIR$/.idea/modules/external/colorpicker/Etar-Calendar.external.colorpicker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/external/timezonepicker/Etar-Calendar.external.timezonepicker.iml" filepath="$PROJECT_DIR$/.idea/modules/external/timezonepicker/Etar-Calendar.external.timezonepicker.iml" />
+    </modules>
+  </component>
+</project>

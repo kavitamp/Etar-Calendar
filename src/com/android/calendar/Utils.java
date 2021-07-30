@@ -16,6 +16,7 @@
 
 package com.android.calendar;
 
+import android.Manifest;
 import android.accounts.Account;
 import android.app.Activity;
 import android.app.SearchManager;
@@ -38,9 +39,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.CalendarContract.Calendars;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.SearchView;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -51,6 +49,11 @@ import android.text.format.Time;
 import android.text.style.URLSpan;
 import android.text.util.Linkify;
 import android.util.Log;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.content.ContextCompat;
 
 import com.android.calendar.CalendarController.ViewType;
 import com.android.calendar.CalendarEventModel.ReminderEntry;
@@ -2124,6 +2127,16 @@ public class Utils {
                     mCallBack.run();
                 }
             }
+        }
+    }
+
+    public static boolean isCalendarPermissionGranted(Context context) {
+        if (Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(context,
+                Manifest.permission.READ_CALENDAR) == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        } else{
+            Toast.makeText(context, R.string.user_rejected_calendar_write_permission, Toast.LENGTH_LONG).show();
+            return false;
         }
     }
 

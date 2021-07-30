@@ -1078,7 +1078,12 @@ public class AgendaWindowAdapter extends BaseAdapter
 
             if (cursor == null) {
               if (mAgendaListView != null && mAgendaListView.getContext() instanceof Activity) {
-                ((Activity) mAgendaListView.getContext()).finish();
+                  if (Utils.isCalendarPermissionGranted(mContext)) {
+                      //If permission is granted then return.
+                      ((Activity) mAgendaListView.getContext()).finish();
+                  } else {
+                      mHeaderView.setText(R.string.calendar_permission_not_granted);
+                  }
               }
               return;
             }

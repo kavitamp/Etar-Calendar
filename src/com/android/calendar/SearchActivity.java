@@ -29,14 +29,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.CalendarContract.Events;
 import android.provider.SearchRecentSuggestions;
-import androidx.appcompat.app.ActionBar;
-import androidx.core.view.MenuItemCompat;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import android.text.format.Time;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.view.MenuItemCompat;
 
 import com.android.calendar.CalendarController.EventInfo;
 import com.android.calendar.CalendarController.EventType;
@@ -320,9 +321,12 @@ public class SearchActivity extends AppCompatActivity implements CalendarControl
         // Make sure the today icon is up to date
         invalidateOptionsMenu();
         mTimeChangesReceiver = Utils.setTimeChangesReceiver(this, mTimeChangesUpdater);
-        mContentResolver.registerContentObserver(Events.CONTENT_URI, true, mObserver);
-        // We call this in case the user changed the time zone
-        eventsChanged();
+
+        if (Utils.isCalendarPermissionGranted(getApplicationContext())) {
+            mContentResolver.registerContentObserver(Events.CONTENT_URI, true, mObserver);
+            // We call this in case the user changed the time zone
+            eventsChanged();
+        }
     }
 
     @Override
